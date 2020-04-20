@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="btnSave" type="id" />
+    <item name="lblNom" type="id" />
+    <item name="txtPrenom" type="id" />
+    <item name="lblCin" type="id" />
+    <item name="txtCin" type="id" />
+    <item name="lblPrenom" type="id" />
+    <item name="txtAdresse" type="id" />
+    <item name="lblAdresse" type="id" />
+    <item name="lblTel" type="id" />
+    <item name="lblEmail" type="id" />
+    <item name="lblPassword" type="id" />
+    <item name="lblDateN" type="id" />
+    <item name="txtDateN" type="id" />
+    <item name="txtName" type="id" />
+    <item name="txtPhone" type="id" />
+    <item name="txtMail" type="id" />
+</resources>

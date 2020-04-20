@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EspaceAdministrator.AddClientFormActivity">
+
+
+    <Button
+        android:id="@id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/enregister"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        android:onClick="btnClick"
+        />
+
+    <TextView
+        android:id="@id/lblNom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nom"
+        app:layout_constraintBaseline_toBaselineOf="@id/txtName"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@id/txtName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/lblNom"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@id/lblPrenom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="Prenom"
+        app:layout_constraintBaseline_toBaselineOf="@id/txtPrenom"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@id/txtPrenom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/lblPrenom"
+        app:layout_constraintTop_toBottomOf="@id/txtName" />
+
+    <TextView
+        android:id="@id/lblCin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="CIN"
+        app:layout_constraintBaseline_toBaselineOf="@id/txtCin"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@id/txtCin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/lblCin"
+        app:layout_constraintTop_toBottomOf="@+id/txtPrenom"
+
+        />
+
+    <TextView
+        android:id="@id/lblAdresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/adresses"
+        app:layout_constraintBaseline_toBaselineOf="@id/txtAdresse"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <EditText
+        android:id="@id/txtAdresse"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/lblAdresse"
+        app:layout_constraintTop_toBottomOf="@+id/txtCin"
+        app:layout_constraintEnd_toEndOf="parent"
+
+
+        />
+    <TextView
+        android:id="@id/lblTel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tele"
+        app:layout_constraintBaseline_toBaselineOf="@id/txtPhone"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        />
+    <EditText
+        android:id="@id/txtPhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        app:layout_constraintStart_toEndOf="@id/lblTel"
+        app:layout_constraintTop_toBottomOf="@id/txtAdresse"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        />
+    <TextView
+        android:id="@id/lblEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email"
+        app:layout_constraintBaseline_toBaselineOf="@id/txtMail"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        />
+    <EditText
+        android:id="@id/txtMail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toEndOf="@id/lblEmail"
+        app:layout_constraintTop_toBottomOf="@id/txtPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        />
+
+    <TextView
+        android:id="@id/lblPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mot_de_passe"
+        app:layout_constraintBaseline_toBaselineOf="@id/txtPassword"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        />
+    <EditText
+        android:id="@id/txtPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toEndOf="@id/lblPassword"
+        app:layout_constraintTop_toBottomOf="@id/txtMail"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        />
+
+    <TextView
+        android:id="@id/lblDateN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date_naissance"
+        app:layout_constraintBaseline_toBaselineOf="@id/txtDateN"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        />
+    <EditText
+        android:id="@id/txtDateN"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        app:layout_constraintStart_toEndOf="@id/lblDateN"
+        app:layout_constraintTop_toBottomOf="@id/txtPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
