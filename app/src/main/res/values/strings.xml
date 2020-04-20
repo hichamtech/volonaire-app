@@ -135,4 +135,5 @@
     <string name="mot_de_passe">Mot de Passe</string>
     <string name="date_naissance">Date Naissance</string>
     <string name="nom" />
+    <string name="Nom">Nom</string>
 </resources>

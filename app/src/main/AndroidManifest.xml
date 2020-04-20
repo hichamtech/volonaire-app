@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EspaceAdministrator.AddClientFormActivity"></activity>
+        <activity android:name=".EspaceAdministrator.DetailClientActivity"></activity>
+        <activity android:name=".EspaceAdministrator.AddClientFormActivity" />
         <activity android:name=".EspaceAdministrator.ListClientActivity" />
         <activity android:name=".EspaceAdmin.Activity.ListclientsActivity" />
         <activity android:name=".EspaceAdministrator.AdminActivity" />

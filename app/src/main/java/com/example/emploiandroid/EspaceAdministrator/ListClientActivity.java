@@ -7,7 +7,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -17,10 +21,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.emploiandroid.LoginActivity;
 import com.example.emploiandroid.Models.Personne;
 import com.example.emploiandroid.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,10 +39,10 @@ public class ListClientActivity extends AppCompatActivity {
     private ListClientAdapter listAdapter;
     Personne client ;
     Button btnAddClient;
+    int lockClikedItemIndex;
+    private static  final  int EDIT = 0,DElETE=1, DETAIL =2;
 
-
-
-
+    //Start RCYCLE METHODS
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,48 +50,69 @@ public class ListClientActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.lv);
         btnAddClient = findViewById(R.id.btnAddClient);
+        registerForContextMenu(listView);
         getListClients();
-    }
 
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                lockClikedItemIndex = position;
+
+
+                return false;
+            }
+        });
+
+
+    }
     @Override
     protected void onStart() {
         super.onStart();
         Log.d(DEBUGTAG, "OnStart");
 
     }
-
     @Override
     protected void onPause() {
         super.onPause();
         Log.d(DEBUGTAG, "onPause");
     }
-
     @Override
     protected void onStop() {
         super.onStop();
         Log.d(DEBUGTAG, "onStop");
 
     }
-
     @Override
     protected void onRestart() {
         super.onRestart();
         Log.d(DEBUGTAG, "onRestart");
 
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         Log.d(DEBUGTAG, "onDestroy");
 
     }
-
+    @Override
     protected void onResume() {
         super.onResume();
         Log.d(DEBUGTAG, "OnResume");
     }
+    //END RECYCLE METHODS
 
+
+    public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo){
+        super.onCreateContextMenu(menu,view,menuInfo);
+        // menu.setHeaderIcon(R.drawable.editicon);
+        menu.setHeaderTitle("Options");
+        menu.add(Menu.NONE, EDIT, menu.NONE,"Modifier");
+        menu.add(Menu.NONE, DElETE, menu.NONE,"Supprimer");
+        menu.add(Menu.NONE, DETAIL,menu.NONE,"Detail");
+    }
+
+    //CRUD CLIENT
+    //Function To the list of Client
     private void getListClients(){
         AfficherProgressDialog(this, "Chargement..","Recherch client",false);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_BASE,
@@ -99,24 +122,27 @@ public class ListClientActivity extends AppCompatActivity {
                         Log.d("strrrrr", ">>" + response);
                         dataModelArrayList = new ArrayList<>();
 
-                            try {
-                                //if(obj.optString("status").equals("true")){ //TODO:ADD STATUS OF RESPONSE IN API
-                                JSONObject obj = new JSONObject(response);
-                                JSONArray dataArray  = obj.getJSONArray("hydra:member");
-                                for (int i = 0; i < dataArray.length(); i++)
-                                {
+                        try {
+                            //if(obj.optString("status").equals("true")){ //TODO:ADD STATUS OF RESPONSE IN API
+                            JSONObject obj = new JSONObject(response);
+                            JSONArray dataArray  = obj.getJSONArray("hydra:member");
+                            for (int i = 0; i < dataArray.length(); i++)
+                            {
                                 client = new Personne();
                                 JSONObject dataobj = dataArray.getJSONObject(i);
                                 client.setNom(dataobj.getString("nom"));
                                 client.setEmail(dataobj.getString("email"));
                                 client.setNumTelephone(dataobj.getString("NumTelephone"));
+                                client.setId(dataobj.getInt("id"));
+
+                                lockClikedItemIndex = client.getId();
                                 dataModelArrayList.add(client);
-                             }
-                                setupListview();
-                                // }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
                             }
+                            setupListview();
+                            // }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
                     }
                 }, //TODO: ADD API TOKEN
@@ -130,9 +156,54 @@ public class ListClientActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
+    //Function To Edit Client
+    public void EditClient(){
+
+    }
+    //Function To Delete Client
+    public void DeleteClient(int idClient){
+
+
+    }
+    //Function to get Detail CLient
+    public void DetailClient(){
+        Intent intent = new Intent(ListClientActivity.this, DetailClientActivity.class);
+        intent.putExtra("idClient",lockClikedItemIndex);
+        //TODO:ADD API TOKEN
+        startActivity(intent);
 
 
 
+
+    }
+    //END CRUD CLIENT
+
+    // Start Intent And ListView Setup
+    //Function to Select item for EDIT/DELETE/DETAILS
+    public boolean onContextItemSelected(MenuItem item){
+
+        switch (item.getItemId()) {
+
+            case EDIT:
+
+                break;
+
+            case DElETE:
+
+
+                break;
+
+            case DETAIL:
+
+
+                Log.d(DEBUGTAG,"this is my id" + lockClikedItemIndex);
+                DetailClient();
+
+
+        }
+
+        return super.onContextItemSelected(item);
+    }
     //FUNCTION TO SETUP THE LIST VIEW
     private void setupListview(){
         supprimerSimpleProgressDialog();
@@ -158,10 +229,8 @@ public class ListClientActivity extends AppCompatActivity {
         }
 
     }
-
     //FUNCTION TO DISPLAY PROGRESS DIAALOG
-    public static void AfficherProgressDialog(Context context, String title,
-                                              String msg, boolean isCancelable) {
+    public static void AfficherProgressDialog(Context context, String title, String msg, boolean isCancelable) {
         try {
             if (mProgressDialog == null) {
                 mProgressDialog = ProgressDialog.show(context, title, msg);
@@ -180,8 +249,7 @@ public class ListClientActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
-
+    //FUNCTION TO OPEN FORM CLIENT
     public void OpenAddForm(){
 
         Intent intent = new Intent(ListClientActivity.this, AddClientFormActivity.class);
@@ -189,6 +257,7 @@ public class ListClientActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+    //OnClick BtnAdd
     public void btnAddClient(View view) {
 
         if (view ==btnAddClient){
@@ -196,4 +265,7 @@ public class ListClientActivity extends AppCompatActivity {
         }
 
     }
+    //End Start Intent ListView Setup
+
+
 }
