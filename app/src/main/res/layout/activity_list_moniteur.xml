@@ -5,20 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EspaceAdministrator.Client.ListClientActivity">
+    tools:context=".EspaceAdministrator.Moniteur.ListMoniteurActivity">
 
     <Button
-        android:id="@+id/btnAddClient"
+        android:id="@+id/btnAddMoniteur"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ajouter_client"
-        android:onClick="btnAddClient"/>
+        android:text="@string/ajouter_un_moniteur"
+        android:onClick="btnAddMoniteur"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/liste_des_clients"
+        android:text="@string/liste_des_moniteurs"
         android:textColor="#000"
         />
 

@@ -49,13 +49,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="81dp"
+        android:layout_marginTop="51dp"
         android:layout_marginEnd="124dp"
         android:layout_marginBottom="456dp"
         android:onClick="btnProfil"
         android:text="Profil"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnMoniteur" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btnMoniteur"
+        app:layout_constraintTop_toBottomOf="@+id/btnClients"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/txtUserInfo"

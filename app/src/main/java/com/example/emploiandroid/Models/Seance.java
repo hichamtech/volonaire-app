@@ -7,7 +7,7 @@ public class Seance {
     private Date DateDebut;
     private Date DateFin;
     private int NbrRep;
-
+    public Seance(){}
     public Seance(int id, Date dateDebut, Date dateFin, int nbrRep) {
         this.id = id;
         this.DateDebut = dateDebut;

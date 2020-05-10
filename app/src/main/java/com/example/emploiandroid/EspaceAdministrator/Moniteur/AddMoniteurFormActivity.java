@@ -1,4 +1,4 @@
-package com.example.emploiandroid.EspaceAdministrator;
+package com.example.emploiandroid.EspaceAdministrator.Moniteur;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,64 +6,54 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkError;
-import com.android.volley.NoConnectionError;
-import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.ServerError;
-import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.auth0.android.jwt.JWT;
-import com.example.emploiandroid.LoginActivity;
 import com.example.emploiandroid.Models.Personne;
+import com.example.emploiandroid.Models.VolleySingleton;
 import com.example.emploiandroid.R;
-import com.example.emploiandroid.VolleySingleton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
-import android.widget.DatePicker;
-import java.util.Calendar;
 
-public class AddClientFormActivity extends AppCompatActivity {
+public class AddMoniteurFormActivity extends AppCompatActivity {
 
-    //TODO: ADD LISTENER TO SERVICE TO CRYPT PASSWORD
-    private static final String DEBUGTAG = AdminActivity.class.getCanonicalName();
+    private static final String DEBUGTAG = AddMoniteurFormActivity.class.getCanonicalName();
 
     private EditText txtNom, txtPrenom, txtCin, txtAdresse, txtTele, txtEmail, txtPassword, txtDateN;
-    private static String URL_BASE = "http://192.168.1.11:8000/api/personnes";
+    private static String URL_BASE = "http://192.168.1.12:8000/api/personnes";
 
     private DatePicker datePicker;
     private Calendar calendar;
     private Button btnAdd;
-    private Personne client;
+    private Personne moniteur;
     private int year, month, day;
 
     private JWT jwt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_client_form);
+        setContentView(R.layout.activity_add_moniteur_form);
 
         jwt = (JWT) getIntent().getParcelableExtra("jwt");
 
         txtNom = findViewById(R.id.txtName); //TODO:DELETE txtNom form string file
-        txtPrenom = findViewById(R.id.txtPrenom);
+        txtPrenom = findViewById(R.id.txtTitle);
         txtCin = findViewById(R.id.txtCin);
         txtAdresse = findViewById(R.id.txtAdresse);
         txtTele = findViewById(R.id.txtPhone); //TODO:DELETE txtNumform string file
@@ -112,13 +102,13 @@ public class AddClientFormActivity extends AppCompatActivity {
                 Toast.LENGTH_SHORT)
                 .show();
     }
-    private void createClient() {
+    private void createMoniteur() {
 
         try {
             JSONObject jsonBody = new JSONObject();
 
-            Log.d(DEBUGTAG,"CREATE CLIENT");
-           String nom = txtNom.getText().toString();
+            Log.d(DEBUGTAG,"CREATE Moniteur");
+            String nom = txtNom.getText().toString();
             String prenom = txtPrenom.getText().toString();
             String cin = txtCin.getText().toString();
             String adresse = txtAdresse.getText().toString();
@@ -128,17 +118,16 @@ public class AddClientFormActivity extends AppCompatActivity {
             String dateN = txtDateN.getText().toString();
 
 
-           jsonBody.put("nom", nom);
+            jsonBody.put("nom", nom);
             jsonBody.put("prenom", prenom);
             jsonBody.put("cin", cin);
             jsonBody.put("dateNaissance", dateN);
             jsonBody.put("adresse", adresse);
             jsonBody.put("NumTelephone", tele);
             jsonBody.put("email", email);
-            jsonBody.put("roles", "ROLE_CLIENT");
             jsonBody.put("password", password);
-            JSONArray  roles =new JSONArray();
-            roles.put("ROLE_CLIENT");
+            JSONArray roles =new JSONArray();
+            roles.put("ROLE_MONITEUR");
             jsonBody.put("roles", roles);
 
 
@@ -147,8 +136,9 @@ public class AddClientFormActivity extends AppCompatActivity {
                 public void onResponse(JSONObject response) {
 
                     Log.d(DEBUGTAG,response.toString());
-                    Intent intent = new Intent(AddClientFormActivity.this, ListClientActivity.class);
+                    Intent intent = new Intent(AddMoniteurFormActivity.this, ListMoniteurActivity.class);
                     startActivity(intent);
+                    finish();
                     Toast.makeText(getApplicationContext(), "Ajouté avec Succès", Toast.LENGTH_LONG).show();
 
 
@@ -178,14 +168,11 @@ public class AddClientFormActivity extends AppCompatActivity {
 
     }
 
-    public void btnClick(View view) {
+
+    public void btnAddMoniteur(View view) {
         if (view == btnAdd) {
-            createClient();
+            createMoniteur();
 
         }
     }
 }
-
-
-
-

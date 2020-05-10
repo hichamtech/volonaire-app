@@ -13,12 +13,12 @@ import java.util.ArrayList;
 
 
 
-public class ListClientAdapter extends BaseAdapter {
+public class ListAdapter extends BaseAdapter {
 
     private Context context;
     private ArrayList<Personne> dataModelArrayList;
 
-    public ListClientAdapter(Context context, ArrayList<Personne> dataModelArrayList) {
+    public ListAdapter(Context context, ArrayList<Personne> dataModelArrayList) {
 
         this.context = context;
         this.dataModelArrayList = dataModelArrayList;
