@@ -132,8 +132,16 @@
     <string name="tele">tele</string>
     <string name="adresses">Adresse</string>
     <string name="email">Email</string>
-    <string name="mot_de_passe">Mot de Passe</string>
     <string name="date_naissance">Date Naissance</string>
     <string name="nom" />
     <string name="Nom">Nom</string>
+    <string name="modifier">Modifier</string>
+    <string name="ajouter_un_moniteur">Ajouter un moniteir</string>
+    <string name="liste_des_moniteurs">Liste des moniteurs</string>
+    <string name="ajouter_client">Ajouter client</string>
+    <string name="liste_des_clients">Liste des Clients</string>
+    <string name="title_activity_detail_moniteur">DetailMoniteurActivity</string>
+    <string name="bienvenue">Bienvenue</string>
+    <string name="mot_de_passe">Mot de Passe</string>
+    <string name="Bonjour">Bonjour</string>
 </resources>

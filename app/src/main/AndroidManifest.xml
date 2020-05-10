@@ -11,10 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EspaceAdministrator.DetailClientActivity"></activity>
-        <activity android:name=".EspaceAdministrator.AddClientFormActivity" />
-        <activity android:name=".EspaceAdministrator.ListClientActivity" />
-        <activity android:name=".EspaceAdmin.Activity.ListclientsActivity" />
+        <activity android:name=".EspaceClient.ProfileClientActivity"></activity>
+        <activity android:name=".EspaceMoniteur.ProfileMonitorActivity" />
+        <activity android:name=".EspaceAdministrator.Seance.ListSeanceActivity" />
+        <activity android:name=".EspaceAdministrator.ProfileActivity" />
+        <activity android:name=".EspaceMoniteur.MoniteurActivity" />
+        <activity android:name=".EspaceClient.ClientActivity" />
+        <activity
+            android:name=".EspaceAdministrator.Moniteur.DetailMoniteurActivity"
+            android:label="@string/title_activity_detail_moniteur"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".EspaceAdministrator.Moniteur.EditMoniteurActivity" />
+        <activity android:name=".EspaceAdministrator.Moniteur.AddMoniteurFormActivity" />
+        <activity android:name=".EspaceAdministrator.Moniteur.ListMoniteurActivity" />
+        <activity android:name=".EspaceAdministrator.Client.EditClientFormActivity" />
+        <activity android:name=".EspaceAdministrator.Client.DetailClientActivity" />
+        <activity android:name=".EspaceAdministrator.Client.AddClientFormActivity" />
+        <activity android:name=".EspaceAdministrator.Client.ListClientActivity" />
         <activity android:name=".EspaceAdministrator.AdminActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>

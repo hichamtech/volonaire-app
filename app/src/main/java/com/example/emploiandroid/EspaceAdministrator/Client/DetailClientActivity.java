@@ -1,4 +1,4 @@
-package com.example.emploiandroid.EspaceAdministrator;
+package com.example.emploiandroid.EspaceAdministrator.Client;
 
 import androidx.appcompat.app.AppCompatActivity;
 

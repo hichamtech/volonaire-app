@@ -5,35 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/listiew">
 
-
+    <ImageView
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_person_black_24dp"/>
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
         android:orientation="vertical">
-
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
             android:id="@+id/txtNom"
-            android:text="ddd"/>
+            android:text="Nom client"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="@color/blue"
+            android:textSize="15sp"
+            android:textStyle="bold"
             android:id="@+id/txtEmail"
-            android:text="ddd"/>
+            android:text="email"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
             android:id="@+id/txtTele"
             android:text="ddd"/>
 
     </LinearLayout>
+</LinearLayout>
 
 </LinearLayout>

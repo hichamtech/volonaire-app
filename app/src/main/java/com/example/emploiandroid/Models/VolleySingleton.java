@@ -1,4 +1,4 @@
-package com.example.emploiandroid;
+package com.example.emploiandroid.Models;
 
 import android.content.Context;
 import android.graphics.Bitmap;

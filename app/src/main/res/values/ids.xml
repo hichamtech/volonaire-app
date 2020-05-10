@@ -17,4 +17,10 @@
     <item name="txtName" type="id" />
     <item name="txtPhone" type="id" />
     <item name="txtMail" type="id" />
+    <item name="btnUpdate" type="id" />
+    <item name="textPassword" type="id" />
+    <item name="btnLogin" type="id" />
+    <item name="textUsername" type="id" />
+    <item name="textView2" type="id" />
+
 </resources>

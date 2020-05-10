@@ -6,13 +6,28 @@ public class LoginModel {
     private String token;
     private String status;
     private String  email;
+    private  String nom;
 
-    public LoginModel(int id,String email,String role,String status, String token) {
+    public LoginModel(String email,String role,String status, String token) {
         this.id = id;
         this.role = role;
         this.token = token;
         this.status = status;
         this.email = email;
+    }
+    public LoginModel(int id, String nom, String email) {
+        this.id = id;
+        this.nom = nom;
+        this.email = email;
+
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     public String getEmail() {

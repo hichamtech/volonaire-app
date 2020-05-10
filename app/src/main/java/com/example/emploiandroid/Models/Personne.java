@@ -2,10 +2,10 @@ package com.example.emploiandroid.Models;
 
 import java.util.Date;
 
-public class Personne {
+public class Personne  {
 
     private  int id;
-    private String nom,prenom,cin,adresse, numTelephone,email,roles,password,token;
+    private String nom,prenom,cin,adresse, numTelephone,email,roles,password,token,status;
     private Date date_naissance;
     private Seance seance;
 
@@ -34,6 +34,31 @@ public class Personne {
         this.token = token;
         this.date_naissance = date_naissance;
         this.seance = seance;
+    }
+
+    public Personne(int id, String nom, String email,String roles, String token) {
+        this.id = id;
+        this.nom = nom;
+        this.email = email;
+        this.email = roles;
+        this.token = token;
+
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public int getId() {
