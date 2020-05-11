@@ -4,6 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EspaceAdministrator.Seance.ListSeanceActivity">
+    tools:context=".EspaceAdministrator.Seance.AgendaCalandarView">
+
+    <com.github.tibolte.agendacalendarview.AgendaCalendarView
+        android:id="@id/agenda_calendar_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

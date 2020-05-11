@@ -1,6 +1,7 @@
 package com.example.emploiandroid.EspaceMoniteur;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
@@ -18,6 +19,8 @@ public class MoniteurActivity extends AppCompatActivity {
     private static final String DEBUGTAG = MoniteurActivity.class.getCanonicalName();
     private TextView textView3;
     private CardView cardProfil,cardseance;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +88,6 @@ public class MoniteurActivity extends AppCompatActivity {
     private void openprofile() {
         Intent i = new Intent(MoniteurActivity.this,ProfileMonitorActivity.class);
         startActivity(i);
-
+        setContentView(R.layout.activity_moniteur);
     }
 }

@@ -144,4 +144,5 @@
     <string name="bienvenue">Bienvenue</string>
     <string name="mot_de_passe">Mot de Passe</string>
     <string name="Bonjour">Bonjour</string>
+    <string name="info_client">Info client</string>
 </resources>

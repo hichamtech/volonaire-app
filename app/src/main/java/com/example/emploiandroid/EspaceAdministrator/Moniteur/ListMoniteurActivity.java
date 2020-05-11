@@ -44,7 +44,8 @@ public class ListMoniteurActivity extends AppCompatActivity {
 
 
     private static final String DEBUGTAG = ListMoniteurActivity.class.getCanonicalName();
-    private static String URL_BASE = "http://192.168.1.7:8000/api/personnes?roles=ROLE_MONITEUR";
+
+    private static String URL_BASE = "http://192.168.1.13:8000/api/personnes?roles=ROLE_MONITEUR";
     private static ProgressDialog mProgressDialog;
     private ListView listView;
     ArrayList<Personne> dataModelArrayList;
@@ -69,7 +70,6 @@ public class ListMoniteurActivity extends AppCompatActivity {
         listView = findViewById(R.id.lv);
         btnAddMoniteur = findViewById(R.id.btnAddMoniteur);
         registerForContextMenu(listView);
-        getListMoniteurs();
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -123,6 +123,8 @@ public class ListMoniteurActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.d(DEBUGTAG, "OnResume");
+        getListMoniteurs();
+
     }
     //END RECYCLE METHODS
 
@@ -206,7 +208,8 @@ public class ListMoniteurActivity extends AppCompatActivity {
     //Function To Delete Moniteur
     public void DeleteMoniteur(int idMoniteur){
 
-        String url = "http://192.168.1.7:8000/api/personnes/"+idMoniteur;
+
+        String url = "http://192.168.1.12:8000/api/personnes/"+idMoniteur;
         StringRequest dr = new StringRequest(Request.Method.DELETE, url,
                 new Response.Listener<String>()
                 {

@@ -23,4 +23,9 @@
     <item name="textUsername" type="id" />
     <item name="textView2" type="id" />
 
+    <item name="agenda_calendar_view" type="id" />
+    <item name="txtcin" type="id" />
+    <item name="txtprenom" type="id" />
+    <item name="txtadresse" type="id" />
+    <item name="Title" type="id" />
 </resources>

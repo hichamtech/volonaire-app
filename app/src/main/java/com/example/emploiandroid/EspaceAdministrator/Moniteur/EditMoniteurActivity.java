@@ -17,14 +17,16 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.auth0.android.jwt.JWT;
+
 import com.example.emploiandroid.Models.Personne;
+
 import com.example.emploiandroid.Models.VolleySingleton;
 import com.example.emploiandroid.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Calendar;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,9 +47,10 @@ public class EditMoniteurActivity extends AppCompatActivity {
         jwt = (JWT) getIntent().getParcelableExtra("jwt");
 
         txtNom = findViewById(R.id.txtName); //TODO:DELETE txtNom form string file
-        txtPrenom = findViewById(R.id.txtPrenom);
-        txtCin = findViewById(R.id.txtCin);
-        txtAdresse = findViewById(R.id.txtAdresse);
+
+        txtPrenom = findViewById(R.id.txtprenom);
+        txtCin = findViewById(R.id.txtcin);
+        txtAdresse = findViewById(R.id.txtadresse);
         txtTele = findViewById(R.id.txtPhone); //TODO:DELETE txtNumform string file
         txtEmail = findViewById(R.id.txtMail);//TODO:DELETE txtEmail string file
         btnUpdate = findViewById(R.id.btnUpdate);
@@ -68,7 +71,8 @@ public class EditMoniteurActivity extends AppCompatActivity {
     }
 
     private void UpdateMoniteur() {
-        URL_BASE  = "http://192.168.1.7:8000/api/personnes/"+idMoniteur;
+
+        URL_BASE  = "http://192.168.1.13:8000/api/personnes/"+idMoniteur;
 
         try {
             JSONObject jsonBody = new JSONObject();
@@ -98,6 +102,8 @@ public class EditMoniteurActivity extends AppCompatActivity {
                     Log.d(DEBUGTAG,response.toString());
                     Intent intent = new Intent(EditMoniteurActivity.this, ListMoniteurActivity.class);
                     startActivity(intent);
+
+                    finish();
                     Toast.makeText(getApplicationContext(), "Modifier avec Succès", Toast.LENGTH_LONG).show();
 
 

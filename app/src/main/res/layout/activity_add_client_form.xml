@@ -8,6 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_margin="10dp"
@@ -23,7 +24,9 @@
             android:layout_marginTop="10dp"
             android:textSize="20dp"
             android:text="@string/ajouter_client"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:id="@id/Title"
+            />
 
         <EditText
             android:id="@id/txtName"
@@ -40,7 +43,7 @@
             />
 
         <EditText
-            android:id="@id/txtPrenom"
+            android:id="@id/txtprenom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@color/black"
@@ -54,7 +57,7 @@
             />
 
         <EditText
-            android:id="@id/txtCin"
+            android:id="@id/txtcin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@color/black"
@@ -67,7 +70,7 @@
             android:hint="CIN"
             />
         <EditText
-            android:id="@id/txtAdresse"
+            android:id="@id/txtadresse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@color/black"
@@ -169,5 +172,6 @@
 
 
     </LinearLayout>
-
 </LinearLayout>
+
+

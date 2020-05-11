@@ -39,7 +39,8 @@ import java.util.Date;
 
 public class ListClientActivity extends AppCompatActivity {
     private static final String DEBUGTAG = ListClientActivity.class.getCanonicalName();
-    private static String URL_BASE = "http://192.168.1.7:8000/api/personnes?roles=ROLE_CLIENT";
+
+    private static String URL_BASE = "http://192.168.1.13:8000/api/personnes?roles=ROLE_CLIENT";
     private static ProgressDialog mProgressDialog;
     private ListView listView;
     ArrayList<Personne> dataModelArrayList;
@@ -64,7 +65,6 @@ public class ListClientActivity extends AppCompatActivity {
         listView = findViewById(R.id.lv);
         btnAddClient = findViewById(R.id.btnAddClient);
         registerForContextMenu(listView);
-        getListClients();
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -117,6 +117,8 @@ public class ListClientActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.d(DEBUGTAG, "OnResume");
+        getListClients();
+
     }
     //END RECYCLE METHODS
 
@@ -192,15 +194,13 @@ public class ListClientActivity extends AppCompatActivity {
         intent.putExtra("adresse",adresse);
         intent.putExtra("tel",tele);
         intent.putExtra("dateN",dateN);
-
-
         startActivity(intent);
 
     }
     //Function To Delete Client
     public void DeleteClient(int idClient){
 
-        String url = "http://192.168.1.12:8000/api/personnes/"+idClient;
+        String url = "http://192.168.1.13:8000/api/personnes/"+idClient;
         StringRequest dr = new StringRequest(Request.Method.DELETE, url,
                 new Response.Listener<String>()
                 {
@@ -231,6 +231,13 @@ public class ListClientActivity extends AppCompatActivity {
     public void DetailClient(int idClient){
         Intent intent = new Intent(ListClientActivity.this, DetailClientActivity.class);
         intent.putExtra("idClient",idClient);
+        intent.putExtra("nom",nom);
+        intent.putExtra("prenom",prenom);
+        intent.putExtra("email",email);
+        intent.putExtra("cin",cin);
+        intent.putExtra("adresse",adresse);
+        intent.putExtra("tel",tele);
+        intent.putExtra("dateN",dateN);
         //TODO:ADD API TOKEN
         startActivity(intent);
 
@@ -254,13 +261,13 @@ public class ListClientActivity extends AppCompatActivity {
             case DElETE:
                 AlertDialog diaBox = AskOption();
                 diaBox.show();
-
                 break;
+
 
             case DETAIL:
 
                 DetailClient(idclient);
-
+            break;
 
         }
 

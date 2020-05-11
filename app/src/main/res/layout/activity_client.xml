@@ -20,16 +20,16 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:src="@drawable/ic_account_circle_black_24dp"/>
-    <TextView
-        android:id="@id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="CLientDash"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="97dp"
-        android:textAlignment="center"
-        android:textColor="@color/white" />
+        <TextView
+            android:id="@id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="CLientDash"
+            tools:layout_editor_absoluteX="100dp"
+            tools:layout_editor_absoluteY="97dp"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
     </LinearLayout>
     <LinearLayout
         android:clipToPadding="false"
@@ -123,6 +123,6 @@
 
         </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

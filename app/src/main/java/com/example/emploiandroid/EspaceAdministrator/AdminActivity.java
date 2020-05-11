@@ -1,17 +1,15 @@
 package com.example.emploiandroid.EspaceAdministrator;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import com.auth0.android.jwt.JWT;
 import com.example.emploiandroid.EspaceAdministrator.Client.ListClientActivity;
 import com.example.emploiandroid.EspaceAdministrator.Moniteur.ListMoniteurActivity;
-import com.example.emploiandroid.EspaceAdministrator.Seance.ListSeanceActivity;
+import com.example.emploiandroid.EspaceAdministrator.Seance.AgendaCalandarView;
 import com.example.emploiandroid.Models.LoginModel;
 import com.example.emploiandroid.Models.SharedPrefManager;
 import com.example.emploiandroid.R;
@@ -37,8 +35,15 @@ public class AdminActivity extends AppCompatActivity {
             startActivity(new Intent(this, LoginActivity.class));
         }*/
 
+
        //
        //Log.d(DEBUGTAG,"my id is" +  Integer.valueOf(user.getId()));
+
+
+
+       //
+       //Log.d(DEBUGTAG,"my id is" +  Integer.valueOf(user.getId()));
+
 
 
          //txtUserInfo.setText(user.getId());
@@ -107,8 +112,8 @@ public class AdminActivity extends AppCompatActivity {
     }
 
     public void openSeanceList(){
-        Intent intent = new Intent(AdminActivity.this, ListSeanceActivity.class);
 
+        Intent intent = new Intent(AdminActivity.this, AgendaCalandarView.class);
         startActivity(intent);
     }
     public void openClientList(){

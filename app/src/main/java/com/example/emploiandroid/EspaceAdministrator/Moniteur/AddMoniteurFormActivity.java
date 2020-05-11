@@ -36,7 +36,7 @@ public class AddMoniteurFormActivity extends AppCompatActivity {
     private static final String DEBUGTAG = AddMoniteurFormActivity.class.getCanonicalName();
 
     private EditText txtNom, txtPrenom, txtCin, txtAdresse, txtTele, txtEmail, txtPassword, txtDateN;
-    private static String URL_BASE = "http://192.168.1.7:8000/api/personnes";
+    private static String URL_BASE = "http://192.168.1.13:8000/api/personnes";
 
     private DatePicker datePicker;
     private Calendar calendar;
@@ -53,9 +53,9 @@ public class AddMoniteurFormActivity extends AppCompatActivity {
         jwt = (JWT) getIntent().getParcelableExtra("jwt");
 
         txtNom = findViewById(R.id.txtName); //TODO:DELETE txtNom form string file
-        txtPrenom = findViewById(R.id.txtPrenom);
-        txtCin = findViewById(R.id.txtCin);
-        txtAdresse = findViewById(R.id.txtAdresse);
+        txtPrenom = findViewById(R.id.txtprenom);
+        txtCin = findViewById(R.id.txtcin);
+        txtAdresse = findViewById(R.id.txtadresse);
         txtTele = findViewById(R.id.txtPhone); //TODO:DELETE txtNumform string file
         txtEmail = findViewById(R.id.txtMail);//TODO:DELETE txtEmail string file
         txtPassword = findViewById(R.id.txtPassword);
@@ -138,6 +138,7 @@ public class AddMoniteurFormActivity extends AppCompatActivity {
                     Log.d(DEBUGTAG,response.toString());
                     Intent intent = new Intent(AddMoniteurFormActivity.this, ListMoniteurActivity.class);
                     startActivity(intent);
+                    finish();
                     Toast.makeText(getApplicationContext(), "Ajouté avec Succès", Toast.LENGTH_LONG).show();
 
 

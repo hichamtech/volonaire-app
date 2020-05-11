@@ -1,12 +1,17 @@
 package com.example.emploiandroid.EspaceClient;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
+
+import android.content.Intent;
+import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -18,11 +23,13 @@ import com.example.emploiandroid.R;
 public class ClientActivity extends AppCompatActivity {
     private static final String DEBUGTAG = ClientActivity.class.getCanonicalName();
     private CardView cardProfil,cardseance;
+
     TextView txtEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(DEBUGTAG,"onCreate");
+
         setContentView(R.layout.activity_client);
       /*  if (!SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
@@ -86,6 +93,5 @@ public class ClientActivity extends AppCompatActivity {
     private void openprofile() {
         Intent i = new Intent(ClientActivity.this,ProfileClientActivity.class);
         startActivity(i);
-
     }
 }

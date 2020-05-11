@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -17,8 +16,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.auth0.android.jwt.JWT;
+
 import com.example.emploiandroid.EspaceAdministrator.AdminActivity;
 import com.example.emploiandroid.Models.Personne;
+
 import com.example.emploiandroid.R;
 import com.example.emploiandroid.Models.VolleySingleton;
 
@@ -46,9 +47,10 @@ public class EditClientFormActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_client_form);
         jwt = (JWT) getIntent().getParcelableExtra("jwt");
         txtNom = findViewById(R.id.txtName); //TODO:DELETE txtNom form string file
-        txtPrenom = findViewById(R.id.txtPrenom);
-        txtCin = findViewById(R.id.txtCin);
-        txtAdresse = findViewById(R.id.txtAdresse);
+
+        txtPrenom = findViewById(R.id.txtprenom);
+        txtCin = findViewById(R.id.txtcin);
+        txtAdresse = findViewById(R.id.txtadresse);
         txtTele = findViewById(R.id.txtPhone); //TODO:DELETE txtNumform string file
         txtEmail = findViewById(R.id.txtMail);//TODO:DELETE txtEmail string file
         btnUpdate = findViewById(R.id.btnUpdate);
@@ -65,7 +67,9 @@ public class EditClientFormActivity extends AppCompatActivity {
     }
 
     private void UpdateClient() {
-      URL_BASE  = "http://192.168.1.7:8000/api/personnes/"+idClient;
+
+      URL_BASE  = "http://192.168.1.13:8000/api/personnes/"+idClient;
+
 
             try {
                 JSONObject jsonBody = new JSONObject();
@@ -91,6 +95,7 @@ public class EditClientFormActivity extends AppCompatActivity {
                         Log.d(DEBUGTAG,response.toString());
                         Intent intent = new Intent(EditClientFormActivity.this, ListClientActivity.class);
                         startActivity(intent);
+                        finish();
                         Toast.makeText(getApplicationContext(), "Modifier avec Succès", Toast.LENGTH_LONG).show();
                     }
                 }, new Response.ErrorListener() {
